@@ -13,16 +13,20 @@ class Funcionario{
     }
 }
 
-class Gerente{
+class Gerente extends Funcionario{
     public $bonus;
 
     public function __construct($nome, $salarioBase, $bonus) {  
         parent::__construct($nome, $salarioBase);
         $this->bonus = $bonus;
     }
+
+    public function calcularSalario(){
+        return "O salário base de " . $this->nome . " é: " . ($this->salarioBase + $this->bonus);
+    }
 }
 
-$funcionario1 = new Funcionario("Black Pantera", 3500.00);
+$funcionario1 = new Gerente("Black Pantera", 3500.00, 549.99);
 
 echo $funcionario1->calcularSalario();
 ?>
